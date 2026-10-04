@@ -1,0 +1,15 @@
+services:
+  web:
+    image: my-flask-app:v2
+    ports:
+      - "8083:5001"
+    volumes:
+      - my-app-data:/app/data
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+
+volumes:
+  my-app-data:
